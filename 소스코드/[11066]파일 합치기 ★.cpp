@@ -30,9 +30,11 @@ int get_min(int start, int end) {
 	else if (dp[start][end] != INF) return dp[start][end];
 	else {
 		for (int mid = start; mid < end; mid++) {
+			//이 과정에서는 지금 합치고 있는 파일 이전에 생성된 파일들을 합치는데 필요한 연산의 횟수가 나온다.
 			dp[start][end] = min(dp[start][end], get_min(start, mid) + get_min(mid+1, end));
 		}
 	}
+	//현재 합치고 있는 파일을 합치는 데 필요한 연산 횟수(즉, 마지막 연산의 횟수)를 더한다.
 	return dp[start][end] += sum[end] - sum[start - 1];
 }
 
