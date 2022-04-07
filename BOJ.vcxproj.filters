@@ -528,5 +528,17 @@
     <ClCompile Include="소스코드\[2470]두 용액 ★.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="소스코드\[2580]스도쿠.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="소스코드\[4195]친구 네트워크.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="소스코드\[2169]로봇 조종하기.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="소스코드\[13549]숨바꼭질 3.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
