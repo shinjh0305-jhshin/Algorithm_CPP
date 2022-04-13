@@ -1,3 +1,5 @@
+//2467·Î ¿¬½À
+
 #include <iostream>
 #include <vector>
 #include <algorithm>
