@@ -600,7 +600,16 @@
     <ClCompile Include="소스코드\[1202]보석 도둑.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="소스코드\[17471]게리맨더링.cpp">
+    <ClCompile Include="소스코드\!미완성_[17471]게리맨더링.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="소스코드\[9466]텀 프로젝트.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="소스코드\[14891]톱니바퀴.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="소스코드\[10942]팰린드롬.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
