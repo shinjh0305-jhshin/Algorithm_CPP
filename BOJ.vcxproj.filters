@@ -618,7 +618,16 @@
     <ClCompile Include="소스코드\[7578]공장.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="소스코드\!미완성_[14003]가장 긴 증가하는 부분 수열 5.cpp">
+    <ClCompile Include="소스코드\[14003]가장 긴 증가하는 부분 수열 5.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="소스코드\[4485]녹색 옷 입은 애가 젤다지.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="소스코드\[2437]저울.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="소스코드\[1701]Cubeditor.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
