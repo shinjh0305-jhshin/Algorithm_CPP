@@ -8,9 +8,8 @@ int main() {
 
 	scanf("%ld", &N);
 
-	for (i = 0; i < N; i++)
-	{
-		rawdata[i + 2] = (2 * rawdata[i + 1] + rawdata[i]) % MOD;
+	for (i = 2; i < N; i++) {
+		rawdata[i] = (2 * rawdata[i - 1] + rawdata[i - 2]) % MOD;
 	}
 
 	printf("%ld\n", rawdata[N - 1] % MOD);
