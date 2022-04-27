@@ -73,23 +73,23 @@ public:
 		* 2. 제곱수가 아니면, 1^2, 2^2, ... , 10^2까지 가면서
 		* 3. 101 - (2에서 구한 수)가 어떻게 구성된지를 판단한다.
 		* ***************************************************/
-		if (floor(sqrt(num)) == sqrt(num)) {
+		if (floor(sqrt(num)) == sqrt(num)) { //목표 숫자가 제곱수이면 1을 리턴한다.
 			rawdata[num] = 1;
 			return;
 		}
 
 		int num_saved; /*3.의 계산식 값 저장*/
-		for (int current = 1; current <= num; current++) {
-			if (floor(sqrt(current)) == sqrt(current)) {
+		for (int current = 1; current <= num; current++) { //1부터 목표 숫자까지 가면서 계산한다.
+			if (floor(sqrt(current)) == sqrt(current)) { //current가 제곱수면 1을 저장한다.
 				rawdata[current] = 1;
 				continue;
 			}
 
 			rawdata[current] = INT_MAX;
 
-			for (int i = 1; current > i * i; i++) {
-				num_saved = current - i * i;
-				if (rawdata[num_saved] + 1 < rawdata[current]) {
+			for (int i = 1; i * i < current; i++) { //current보다 작은 제곱수에 대해 계산한다.
+				num_saved = current - i * i; //3.을 진행한다.
+				if (rawdata[num_saved] + 1 < rawdata[current]) { //더 적은 제곱수들로 숫자 구성이 가능할 경우.
 					rawdata[current] = rawdata[num_saved] + 1;
 				}
 			}

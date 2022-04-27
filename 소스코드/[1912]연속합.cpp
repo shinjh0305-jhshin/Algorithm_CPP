@@ -2,9 +2,9 @@
 #pragma warning (disable:4996)
 
 struct node {
-	int num;
-	int sum;
-	int from; /*for backtracking*/
+	int num; //RAWDATA
+	int sum; //구간 합
+	//int from; /*for backtracking*/
 };
 
 class operate {
@@ -30,24 +30,24 @@ public:
 
 			scanf("%d", &in_num);
 			arr[i].num = in_num;
-			if (i == 0) {
-				arr[0].from = 0;
+			if (i == 0) { //INITIALIZE
+				//arr[0].from = 0;
 				arr[0].sum = max_sum = in_num;
 				continue;
 			}
 
-			sum_temp = arr[i - 1].sum + in_num;
-			if (in_num >= sum_temp) {
-				arr[i].from = i;
+			sum_temp = arr[i - 1].sum + in_num; //이전 구간 합에 내 값을 더한다.
+			if (in_num >= sum_temp) { //내 값으로 다시 구간을 시작하는 것이 구간 합을 연장하는 것보다 유리하다.
+				//arr[i].from = i; //나부터 다시 시작
 				arr[i].sum = in_num;
 			}
-			else {
-				arr[i].from = arr[i - 1].from;
+			else { //구간 합을 연장하는 것이 더 유리하다.
+				//arr[i].from = arr[i - 1].from;
 				arr[i].sum = sum_temp;
 			}
 
-			if (arr[i].sum > max_sum) {
-				max_end = i;
+			if (arr[i].sum > max_sum) { //구간 합의 최댓값이 경신될 경우
+				//max_end = i;
 				max_sum = arr[i].sum;
 			}
 		}
