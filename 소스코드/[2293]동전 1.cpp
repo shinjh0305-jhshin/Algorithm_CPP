@@ -16,9 +16,13 @@ int main() {
 	}
 	sort(currency, currency + type);
 
+	//숫자를 쪼갤 때, 순서가 상관없는 문제이기 때문에
+	//목표 숫자에 1씩 증가하며 도달하는 것을 주 흐름으로 잡기보다는
+	//쪼갤 수 있는 숫자를 바꿔가는 것을 주 흐름으로 잡는다.
+	//쪼갤 수 있는 숫자가 제한적이기에 가능한 일이다.
 	for (int i = 0; i <= price; i++) {
-		if (i%currency[0] == 0) rawdata[0][i] = 1;
-		else rawdata[0][i] = 0;
+		if (i % currency[0] == 0) rawdata[now][i] = 1;
+		else rawdata[now][i] = 0;
 	}
 	swap(now, before);
 

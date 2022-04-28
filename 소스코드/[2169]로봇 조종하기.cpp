@@ -28,16 +28,16 @@ void initialize() {
 	}
 }
 
-void get_left(int row) {
-	from_left[0] = rawdata[row][0] + prev_result[0];
+void get_left(int row) { //위 혹은 왼쪽에서 오는 경로 중 누적 합이 더 큰 쪽을 선택한다
+	from_left[0] = rawdata[row][0] + prev_result[0]; //가장 왼쪽 칸은 위에서밖에 못 온다
 
 	for (int i = 1; i < cols; i++) {
 		from_left[i] = max(prev_result[i], from_left[i - 1]) + rawdata[row][i];
 	}
 }
 
-void get_right(int row) {
-	from_right[cols - 1] = rawdata[row][cols - 1] + prev_result[cols - 1];
+void get_right(int row) { //위 또는 오른쪽에서 오는 경로 중 누적 합이 더 큰 쪽을 선택한다
+	from_right[cols - 1] = rawdata[row][cols - 1] + prev_result[cols - 1]; //가장 오른쪽 칸은 위에서밖에 못 온다
 
 	for (int i = cols - 2; i >= 0; i--) {
 		from_right[i] = max(prev_result[i], from_right[i + 1]) + rawdata[row][i];
@@ -45,7 +45,7 @@ void get_right(int row) {
 }
 
 void get_max() {
-	for (int i = 0; i < cols; i++) {
+	for (int i = 0; i < cols; i++) { //왼쪽 혹은 오른쪽 경로 중 더 큰 쪽을 선택한다.
 		prev_result[i] = max(from_left[i], from_right[i]);
 	}
 }

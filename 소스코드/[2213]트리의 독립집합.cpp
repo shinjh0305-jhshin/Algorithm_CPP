@@ -70,8 +70,8 @@ public:
 	void dfs(int num) {
 		int mov;
 		visited[num] = 1;
-		rawdata[num][inc] = cost[num];
-		rawdata[num][exc] = 0;
+		rawdata[num][inc] = cost[num]; //현재 노드를 포함할 경우 얻을 수 있는 최댓값
+		rawdata[num][exc] = 0; //현재 노드를 불포함할 경우 얻을 수 있는 최댓값
 
 		for (int i = 0; i < tree[num].size(); i++) {
 			mov = tree[num][i];
