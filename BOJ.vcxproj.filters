@@ -363,9 +363,6 @@
     <ClCompile Include="소스코드\[7576]토마토.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="소스코드\[9148]신나는 함수 실행.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="소스코드\[9251]LCS ★.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
@@ -673,6 +670,21 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="소스코드\[1958]LCS 3.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="소스코드\[9095]1, 2, 3 더하기.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="소스코드\[9184]신나는 함수 실행.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="소스코드\[7453]합이 0인 네 정수.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="소스코드\[2003]수들의 합 2.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="소스코드\[1806]부분합.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
