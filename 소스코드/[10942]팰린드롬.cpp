@@ -16,17 +16,17 @@ void initialize() {
 	}
 
 	for (int i = 0; i < sz_rawdata; i++) {
-		dp[i][i] = true;
+		dp[i][i] = true; //길이가 1인 수열은 무조건 팰린드롬이다
 		if (i < sz_rawdata - 1 && rawdata[i] == rawdata[i + 1]) {
-			dp[i][i + 1] = true;
+			dp[i][i + 1] = true; //길이가 2인 수열에 대한 판별
 		}
 	}
 
 	int st;
-	for (int sz = 2; sz <= sz_rawdata - 1; sz++) {
-		for (int fin = sz; fin <= sz_rawdata-1; fin++) {
-			st = fin - sz;
-			if (rawdata[st] == rawdata[fin] && dp[st + 1][fin - 1]) {
+	for (int sz = 2; sz <= sz_rawdata - 1; sz++) { //수열의 길이 순서로 팰린드롬 판별을 진행한다.
+		for (int fin = sz; fin <= sz_rawdata-1; fin++) { //수열의 종료 지점
+			st = fin - sz; //수열의 시작 지점
+			if (rawdata[st] == rawdata[fin] && dp[st + 1][fin - 1]) { //양 끝단이 같은 값이며, 중간이 팰린드롬일경우, 전체가 팰린드롬이다.
 				dp[st][fin] = true;
 			}
 		}
