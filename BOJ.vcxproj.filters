@@ -705,5 +705,8 @@
     <ClCompile Include="소스코드\[16916]부분 문자열.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="소스코드\[11054]가장 긴 바이토닉 부분 수열(2).cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
