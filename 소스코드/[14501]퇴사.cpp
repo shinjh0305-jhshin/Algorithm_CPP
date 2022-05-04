@@ -22,7 +22,7 @@ int main() {
 	}
 	
 	int nextStart, temp, temp1, temp2;
-	for (int i = days; i >= 1; i--) {
+	for (int i = days; i >= 1; i--) { //종료 지점이 명확하고, 종료 지점을 넘는 시작 지점을 선택할 수 없기에 끝에서부터 탐색한다.
 		nextStart = i + rawdata[i].duration; //다음 상담을 시작할 수 있는 날
 
 		temp1 = temp2 = 0;

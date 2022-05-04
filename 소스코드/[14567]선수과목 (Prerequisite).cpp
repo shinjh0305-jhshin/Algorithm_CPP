@@ -38,29 +38,29 @@ public:
 	void operate() {
 		int semester = 1, seonsu, iter, num_husu, husu; //iter : 반복문 iter(현재 학기에 들을 수 있는 과목 개수)
 		queue<int> qu;
-		for (int i = 1; i <= subjects; i++) {
+		for (int i = 1; i <= subjects; i++) { //선수과목이 없는 과목들부터 먼저 전부 qu에 넣는다.
 			if (in_node[i] == 0)
 				qu.push(i);
 		}
 		iter = qu.size();
 
-		while (iter) {
+		while (iter) { 
 			for (int i = 0; i < iter; i++) {
 				seonsu = qu.front();
-				minSemester[seonsu] = semester;
+				minSemester[seonsu] = semester; //과목을 들을 수 있는 학기를 저장한다.
 				
-				num_husu = out_node[seonsu].size();
+				num_husu = out_node[seonsu].size(); //이 과목을 선수과목으로 갖는 과목의 개수
 				for (int j = 0; j < num_husu; j++) {
 					husu = out_node[seonsu][j];
-					in_node[husu]--;
-					if (in_node[husu] == 0) {
+					in_node[husu]--; //후수과목을 이수하기 위해 필요한 선수과목 개수가 줄어든다
+					if (in_node[husu] == 0) { //모든 선수 과목을 이수했을 때
 						qu.push(husu);
 					}
 				}
 				qu.pop();
 			}
 			iter = qu.size();
-			semester++;
+			semester++; //다음 학기로 넘어간다.
 		}
 	}
 
