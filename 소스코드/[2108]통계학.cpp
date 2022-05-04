@@ -30,6 +30,8 @@ double average() {
 
 	ans /= sz;
 	ans = round(ans);
+
+	if (ans == 0) return 0;
 	return ans;
 }
 
@@ -83,3 +85,10 @@ int main() {
 
 	return 0;
 }
+
+/*
+3
+0
+0
+-1
+*/
