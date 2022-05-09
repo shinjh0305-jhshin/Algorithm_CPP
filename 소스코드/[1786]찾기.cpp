@@ -58,9 +58,9 @@ void get_match() {
 			pat_mov = failure[pat_mov - 1] + 1;
 		}
 
-		if (pat_mov == sz_pat) {
-			qu.push(str_mov - sz_pat + 1);
-			pat_mov = failure[pat_mov - 1] + 1;
+		if (pat_mov == sz_pat) { //패턴과 일치하는 문자열을 원본 문자열에서 찾았다.
+			qu.push(str_mov - sz_pat + 1); //일치 문자열의 원본 문자열에서의 시작 지점을 저장한다
+			pat_mov = failure[pat_mov - 1] + 1; //failure을 이용해서 중간 일치 지점을 찾아간다. 이 과정을 빼면 시간초과가 발생한다.
 		}
 	}
 

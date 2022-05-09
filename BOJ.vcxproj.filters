@@ -738,5 +738,8 @@
     <ClCompile Include="소스코드\[2243]사탕상자.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="소스코드\[2941]크로아티아 알파벳.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
