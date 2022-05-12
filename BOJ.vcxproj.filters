@@ -753,5 +753,11 @@
     <ClCompile Include="소스코드\[2517]달리기 ★.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="소스코드\[4354]문자열 제곱.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="소스코드\[5670]휴대폰 자판(2).cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
