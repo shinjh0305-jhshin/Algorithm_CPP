@@ -41,7 +41,7 @@ void dijkstra(int curTarget, int startPoint) {//curTarget : 현재 진행중인 totalC
 
 		if (curSum > totalCost[curTarget][curStart]) continue; //이미 더 최단경로에서 평가되었음.
 
-		for (const auto it : map[curStart]) {
+		for (const auto& it : map[curStart]) {
 			dest = it.first; tempSum = curSum + it.second;
 
 			if (totalCost[curTarget][dest] <= tempSum) continue;
@@ -70,7 +70,7 @@ void operate() {
 	}
 	sort(v.begin(), v.end());
 //	cout << "				ANSWER : ";
-	for (const auto it : v) cout << it << ' ';
+	for (const auto& it : v) cout << it << ' ';
 	cout << endl;
 
 }
