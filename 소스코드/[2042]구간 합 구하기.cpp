@@ -1,3 +1,4 @@
+
 #include <iostream>
 #define endl "\n"
 #pragma warning (disable:4996)
