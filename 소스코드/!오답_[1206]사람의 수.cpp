@@ -23,7 +23,7 @@ void operate() {
 			double temp = rawdata[j] * i; //이번 사람 수 기준 점수 합
 			double nextTemp = rawdata[j] * (i + 1); //다음 사람 수 기준 점수 합
 
-			if (temp - (int)temp < 0.000001) continue; //정수일 경우
+			if (temp - (int)temp < 0.00000001) continue; //정수일 경우
 			else {
 				if ((int)nextTemp - (int)temp >= 1) { //이번 사람 수 안에서 숫자가 바뀐 경우. 즉, 다음 사람 수 기준 점수 합의 정수 부분이 존재.
 					if ((double)((int)temp + 1) / i - rawdata[j] < err) continue; //소숫점 셋째 자리 이하에서 바뀐 경우
