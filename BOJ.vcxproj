@@ -145,7 +145,7 @@
     <ClCompile Include="소스코드\[16234]인구 이동.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="소스코드\!미완성_[2098]외판원 순회.cpp">
+    <ClCompile Include="소스코드\[2098]외판원 순회 ★.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="소스코드\!미완성_[22348]헬기 착륙장.cpp">
@@ -637,7 +637,12 @@
     <ClCompile Include="소스코드\[1946]신입 사원.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="소스코드\[1947]선물 전달.cpp" />
+    <ClCompile Include="소스코드\[1947]선물 전달.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="소스코드\[1948]임계경로.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="소스코드\[1958]LCS 3.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
@@ -657,6 +662,9 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="소스코드\[2018]수들의 합 5.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="소스코드\[2023]신기한 소수.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="소스코드\[2042]구간 합 구하기.cpp">
@@ -971,6 +979,8 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="curinput.txt" />
+    <Text Include="input.txt" />
+    <Text Include="output.txt" />
     <Text Include="result.txt" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
