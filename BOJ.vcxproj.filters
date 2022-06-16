@@ -1014,6 +1014,21 @@
     <ClCompile Include="소스코드\[12891]DNA 비밀번호.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="소스코드\[13023]ABCDE.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="소스코드\[13251]조약돌 꺼내기.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="소스코드\[13398]연속합 2 ★.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="소스코드\[14425]문자열 집합.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="소스코드\[17472]다리 만들기 2.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="curinput.txt" />
