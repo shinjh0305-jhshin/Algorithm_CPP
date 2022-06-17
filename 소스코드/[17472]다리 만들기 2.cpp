@@ -1,5 +1,6 @@
 #include <iostream>
 #include <algorithm>
+#include <queue>
 #include <vector>
 #define INF 2134567890
 using namespace std;
@@ -15,41 +16,67 @@ int root[8];
 int rows, cols, lands; //lands : 땅 개수
 vector<info> edge;
 
+bool compare(const info& a, const info& b) {
+	return a.cost < b.cost;
+}
+
 int getRoot(int num) {
 	if (root[num] < 0) return num;
 	else return root[num] = getRoot(root[num]);
 }
 
-void mergeRoot(int num1, int num2) {
+bool mergeRoot(int num1, int num2) {
 	int root1 = getRoot(num1);
 	int root2 = getRoot(num2);
 
-	if (root1 == root2) return;
+	if (root1 == root2) return false;
 
-	if (root1 > root2) swap(root1, root2);
+	if (root[root1] > root[root2]) swap(root1, root2);
 
-	root1 += root2;
+	root[root1] += root[root2];
 	root[root2] = root1;
+
+	return true;
+}
+
+void mergeAdjLand(int row, int col, int curLand) {
+	queue<pair<int, int>> qu;
+
+	qu.push({ row, col });
+	map[row][col] = curLand;
+
+	int currow, curcol, nrow, ncol;
+	while (!qu.empty()) {
+		currow = qu.front().first; curcol = qu.front().second;
+
+		qu.pop();
+		for (int i = 0; i < 4; i++) {
+			nrow = currow + drow[i]; ncol = curcol + dcol[i];
+			if (map[nrow][ncol] == -1) {
+				qu.push({ nrow, ncol });
+				map[nrow][ncol] = curLand;
+			}
+		}
+	}
+
 }
 
 void initialize() {
 	cin >> rows >> cols;
 
-	int temp, nrow, ncol;
 	lands = 0;
 
 	for (int i = 0; i < rows; i++) {
 		for (int j = 0; j < cols; j++) {
-			cin >> temp;
+			cin >> map[i][j];
+			map[i][j] *= -1; //땅의 index를 위해 음수로 받아서 나중에 1번 땅을 이용하기 편하게 만듬
+		}
+	}
 
-			if (temp) {
-				for (int k = 0; k < 4; k++) {
-					nrow = i + drow[k]; ncol = j + dcol[k]; //현재 땅이 이미 탐색하고 있는 어떤 땅의 일부인가?
-					if (nrow<0 || nrow>rows || ncol<0 || ncol>cols || map[nrow][ncol] == 0) continue;
-					map[i][j] = map[nrow][ncol];
-					break;
-				}
-				if (map[i][j] == 0) map[i][j] = ++lands;
+	for (int i = 0; i < rows; i++) {
+		for (int j = 0; j < cols; j++) {
+			if (map[i][j] == -1) {
+				mergeAdjLand(i, j, ++lands);
 			}
 		}
 	}
@@ -99,10 +126,30 @@ void makeLandDist() {
 			if (landDist[i][j] != INF) edge.push_back({ i, j, landDist[i][j] });
 		}
 	}
+	sort(edge.begin(), edge.end(), compare);
+}
+
+void getMinBridge() {
+	int result = 0;
+	for (auto it : edge) {
+		if (mergeRoot(it.start, it.finish)) {
+			result += it.cost;
+		}
+	}
+
+	int targetRoot = getRoot(1); //1번 땅의 root를 기준으로 삼는다
+	for (int i = 2; i <= lands; i++) {
+		if (getRoot(i) != targetRoot) {
+			cout << -1 << endl;
+			return;
+		}
+	}
+	cout << result << endl;
 }
 
 void operate() {
 	makeLandDist();
+	getMinBridge();
 }
 
 int main() {
