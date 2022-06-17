@@ -1,2 +1,0 @@
-1. console에서 tasklist로 프로젝트명의 PID 찾는다
-2. taskkill /f /PID ID번호
