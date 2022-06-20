@@ -7,29 +7,56 @@ ll desks, ppls;
 ll duration[100003];
 
 void operate() {
-	ll left = 0, right = 0, mid;
+	ll left = 1, right, mid;
+	int temp = 0;
 
 	cin >> desks >> ppls;
 	for (int i = 0; i < desks; i++) {
 		cin >> duration[i];
 		right = max(right, duration[i]);
 	}
-	right *= ppls / desks + 1; //최댓값 : 모든 사람이 아무 고려 없이 모든 데스크에 골고루 뿌려진다.
+	right *= (ppls / desks + 1);
 
-	ll pplCapa;
 	while (left < right) {
-		mid = (left + right) / 2; //단위 : 시간
-		pplCapa = 0; //mid분 동안 처리할 수 있는 총 사람의 명수
+		mid = (left + right) / 2;
 
+		ll maxCapa = 0; //mid 분 동안 처리 할 수 있는 사람 수
 		for (int i = 0; i < desks; i++) {
-			pplCapa += mid / duration[i];
+			maxCapa += mid / duration[i];
 		}
 
-		if (pplCapa >= ppls) right = mid;
-		else left = mid + 1;
+		if (maxCapa >= ppls) {
+			right = mid;
+		}
+		else {
+			left = mid + 1;
+		}
 	}
-
 	cout << left << endl;
+	//return left;
+	//ll left = 0, right = 0, mid;
+
+	//cin >> desks >> ppls;
+	//for (int i = 0; i < desks; i++) {
+	//	cin >> duration[i];
+	//	right = max(right, duration[i]);
+	//}
+	//right *= ppls / desks + 1; //최댓값 : 모든 사람이 아무 고려 없이 모든 데스크에 골고루 뿌려진다.
+
+	//ll pplCapa;
+	//while (left < right) {
+	//	mid = (left + right) / 2; //단위 : 시간
+	//	pplCapa = 0; //mid분 동안 처리할 수 있는 총 사람의 명수
+
+	//	for (int i = 0; i < desks; i++) {
+	//		pplCapa += mid / duration[i];
+	//	}
+
+	//	if (pplCapa >= ppls) right = mid;
+	//	else left = mid + 1;
+	//}
+
+	//cout << left << endl;
 }
 
 int main() {
