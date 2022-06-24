@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #include <algorithm>
+#include <unordered_map>
 using namespace std;
 
 vector<vector<int>> vec = {
@@ -20,5 +21,15 @@ int main() {
 	sort(vec.begin(), vec.end(), compare);
 	string st1 = "a", st2 = "b";
 	string st3 = st1 + st2;
+
+	unordered_map<string, vector<int>> mp;
+
+	mp["shin"].push_back(1);
+	mp["shin"].push_back(-5);
+	cout << mp["shin"][0] << endl;
+	for (auto& it : mp) {
+		sort(it.second.begin(), it.second.end());
+	}
+
 	return 0;
 }
