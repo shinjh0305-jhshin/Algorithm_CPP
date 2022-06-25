@@ -65,7 +65,10 @@ void makeGroup(int idx) {
 void makeNewknowTruth() { //파티 때 진실을 들은 사람들을 저장한다.
 	for (int i = 1; i <= ppl; i++) {
 		for (int j = 0; j < truthPpl; j++) {
-			if (find_root(i) == find_root(knowTruth[j])) newknowTruth.push_back(i);
+			if (find_root(i) == find_root(knowTruth[j])) {
+				newknowTruth.push_back(i);
+				break;
+			}
 		}
 	}
 }
@@ -92,12 +95,12 @@ void findCanLie() {
 }
 
 void operate() {
-	for (int i = 0; i < numParty; i++) {
+	for (int i = 0; i < numParty; i++) { //우선 그룹을 싹 지어놓는다.
 		if (parties[i].size() >= 2) makeGroup(i);
 	}
 
-	makeNewknowTruth();
-	findCanLie();
+	makeNewknowTruth(); //한 사람씩 살펴보면서 원래부터 진실을 알고 있는 사람과 모임을 같이 한 적이 있는지 본다.
+	findCanLie(); //몇 개의 모임에서 거짓말을 할 수 있는지 세어본다.
 	return;
 }
 

@@ -32,7 +32,7 @@ void initialize() {
 
 	for (int i = 0; i < cities; i++) {
 		cin >> cityProfit[i];
-		totalSum[i] = MIN;
+		totalSum[i] = MIN; //최대화를 해야 하기에 MAX대신 MIN을 사용한다.
 	}
 	totalSum[start] = cityProfit[start]; //최초 시작지 초기화
 }
@@ -48,9 +48,9 @@ void operate() {
 
 			if (totalSum[edgeStart] == INF) totalSum[edgeEnd] = INF; //시작 지점이 루프 중간 혹은 이후에 나왔다
 			else if (totalSum[edgeStart] + cityProfit[edgeEnd] - edgeCost > totalSum[edgeEnd]) { //더 이득이 생겼다
-				if (iter >= cities) totalSum[edgeEnd] = INF;
+				if (iter >= cities) totalSum[edgeEnd] = INF; //한 번 더 루프를 도는 과정에서 업데이트 발생.
 				else {
-					totalSum[edgeEnd] = totalSum[edgeStart] + cityProfit[edgeEnd] - edgeCost;
+					totalSum[edgeEnd] = totalSum[edgeStart] + cityProfit[edgeEnd] - edgeCost; //첫 루프에서 업데이트 발생
 				}
 			}
 		}

@@ -40,7 +40,7 @@ void initialize() {
 	}
 }
 
-void operate(vector<info> (&move)[1002], int (&result)[1002]) {
+void operate(vector<info> (&move)[1002], int (&result)[1002]) { //notation이 거지같으면 vector을 사용하자
 	priority_queue<info, vector<info>, compare> pq;
 
 	pq.push({ destination, 0 });

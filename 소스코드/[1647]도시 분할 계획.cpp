@@ -55,17 +55,18 @@ void merge_root(int num1, int num2, int& dist, int& remaining, int& ans) {
 
 	if (height[root1] == height[root2]) height[root1]++;
 
-	remaining--;
-	ans += dist;
+	remaining--; //2개의 root가 하나로 합쳐졌으므로, 1개의 root를 제거한다
+	ans += dist; //필요한 최소 경로 증가.
 }
 
 void operate() {
+	//각 분리 집합을 merge 하면서 집합이 2개가 남았을 때 정지한다.
 	int remaining = houses; //서로 다른 root의 개수
 	int ans = 0, idx = 0;
 
 	while (remaining != 2) {
-		merge_root(rawdata[idx].start_node, rawdata[idx].end_node, rawdata[idx].dist, remaining, ans);
-		idx++;
+		merge_root(rawdata[idx].start_node, rawdata[idx].end_node, rawdata[idx].dist, remaining, ans); //두 개의 집합을 합친다.
+		idx++; //다음 road의 index
 	}
 
 	cout << ans << endl;

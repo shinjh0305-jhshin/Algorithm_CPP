@@ -25,7 +25,7 @@ void initialize() {
 		cin >> st;
 		for (int j = 0; j < sz_rawdata; j++) {
 			if (st[j] == '0') continue;
-			else if ('a' <= st[j] && st[j] <= 'z') {
+			else if ('a' <= st[j] && st[j] <= 'z') { //숫자로 전부 변환해서 rawdata에 넣는다.
 				if (i != j) rawdata.push_back({ st[j] - 'a' + 1, i, j });
 				totalLength += st[j] - 'a' + 1;
 			}
@@ -48,28 +48,24 @@ int getRoot(int num) {
 	return root[num] = getRoot(root[num]);
 }
 
-void mergeRoot(int root1, int root2) {
-	//int root1 = getRoot(num1);
-	//int root2 = getRoot(num2);
+void mergeRoot(int num1, int num2, int cost) {
+	int root1 = getRoot(num1);
+	int root2 = getRoot(num2);
 
-	//if (root1 == root2) return; //operate 함수에서 이미 확인함
+	if (root1 == root2) return; //이미 서로 연결되어 있기에, 랜선의 보관이 필요 없다
 
-	if (root[root1] > root[root2]) swap(root1, root2);
+	if (root[root1] > root[root2]) swap(root1, root2); //서로 연결되지 않았다. 연결한 뒤 랜선을 보관한다.
 
 	root[root1] += root[root2];
 	root[root2] = root1;
+
+	totalLength -= cost; //전체 랜선 길이에서 보관할 랜선 길이를 뺀다
 }
 
 void operate() {
 	int root1, root2;
 	for (const auto curLan : rawdata) {
-		root1 = getRoot(curLan.row); 
-		root2 = getRoot(curLan.col);
-
-		if (root1 != root2) { //갖고 있어야 하는 랜선
-			totalLength -= curLan.cost; //전체 랜선 길이에서 보관할 랜선 길이를 뺀다
-			mergeRoot(root1, root2);
-		}
+		mergeRoot(curLan.row, curLan.col, curLan.cost);
 	}
 
 	root1 = getRoot(0);

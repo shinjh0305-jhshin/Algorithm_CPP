@@ -36,7 +36,7 @@ void operate() {
 
 	cin >> target;
 
-	for (int i = 0; i < nodes; i++) {
+	for (int i = 0; i < nodes; i++) { //원래 leaf node 개수 구한다.
 		if (tree[i].empty()) leaves++;
 	}
 
