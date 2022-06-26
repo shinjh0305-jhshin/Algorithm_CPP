@@ -1038,6 +1038,9 @@
     <ClCompile Include="소스코드\[1504]특정한 최단 경로(2).cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="소스코드\[1939]중량 제한%282%29_메모이제이션 불가.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="curinput.txt" />

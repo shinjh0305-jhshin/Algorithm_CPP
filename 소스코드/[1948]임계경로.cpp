@@ -40,19 +40,19 @@ void getminDuration(int node) {
 	duration[node] = numMax;
 
 	for (const auto nextNode : outRawdata[node]) {
-		if (--leftNodesToCome[nextNode] == 0) {
+		if (--leftNodesToCome[nextNode] == 0) { //innode의 개수를 업데이트. 위상정렬의 핵심.
 			getminDuration(nextNode);
 		}
 	}
 }
 
 void roadsToGo(int startNode, int targetDist) {
-	if (visited[startNode]) return;
+	if (visited[startNode]) return; //분기되었다가 다시 합쳐질 경우, 분기되기 이전의 경로를 중복 counting 하는 점을 방지한다.
 
-	visited[startNode] = true;
+	visited[startNode] = true; 
 	for (const auto prevNode : inRawdata[startNode]) {
-		if (duration[prevNode.from] == targetDist - prevNode.cost) {
-			runFast++;
+		if (duration[prevNode.from] == targetDist - prevNode.cost) { //이전 노드에서 현재 노드로 올 경우, 시간이 맞는지
+			runFast++; //사용할 수 있는 경로를 증가시킨다.
 			roadsToGo(prevNode.from, targetDist - prevNode.cost);
 		}
 	}

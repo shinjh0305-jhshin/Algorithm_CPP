@@ -14,7 +14,7 @@ vector<info> map[100003];
 int nodes, edges;
 int start, finish;
 
-void initialize(int& cost_max) {
+void initialize(int& cost_max) { //cost_max : 다리 중 최대 허용 무게
 	cin >> nodes >> edges;
 
 	int from, to, cost_temp;
@@ -34,7 +34,7 @@ bool BFS(int target) {
 	queue<int> qu;
 	int sz_edges, startPoint, nextPoint;
 
-	qu.push(start);
+	qu.push(start); 
 	visited.set(start, true);
 
 	while (!qu.empty()) {
@@ -44,7 +44,7 @@ bool BFS(int target) {
 		for (int iter = 0; iter < sz_edges; iter++) {
 			nextPoint = map[startPoint][iter].dest;
 
-			if (!visited[nextPoint] && map[startPoint][iter].cost >= target) {
+			if (!visited[nextPoint] && map[startPoint][iter].cost >= target) { //방문하지 않은 노드며, target 무게가 지날 수 있는 다리다.
 
 				if (nextPoint == finish) return true;
 
@@ -63,10 +63,10 @@ void operate() {
 
 	int front = 1, back = cost_max, mid, temp;
 	
-	while (front <= back) {
+	while (front <= back) { //최대 허용 무게를 양 끝으로 해서 이분탐색을 실시한다.
 		mid = (front + back) / 2;
 
-		if (BFS(mid)) {
+		if (BFS(mid)) { //mid의 무게를 갖는 물품을 옮길 수 있는지 확인한다.
 			temp = mid;
 			front = mid + 1;
 		}

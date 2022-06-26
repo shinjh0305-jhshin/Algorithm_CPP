@@ -39,7 +39,7 @@ void merge_root(int num1, int num2) {
 
 void operate() {
 	int isConnected;
-	for (int i = 1; i <= sz_city; i++) {
+	for (int i = 1; i <= sz_city; i++) { //도시 간 연결 상태를 바탕으로 분리 집합을 우선 실시한다.
 		for (int j = 1; j <= i; j++) cin >> isConnected; //좌측 하단 대칭 부분은 날려버린다.
 		for (int j = i + 1; j <= sz_city; j++) {
 			cin >> isConnected;
