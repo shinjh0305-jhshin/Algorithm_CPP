@@ -1065,10 +1065,17 @@
     <ClCompile Include="소스코드\[9205]맥주 마시면서 걸어가기.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="한글 배열에 관한 고찰.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="소스코드\[2352]반도체 설계.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="소스코드\[8595]히든 넘버.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="curinput.txt" />
-    <Text Include="result.txt" />
     <Text Include="input.txt" />
     <Text Include="output.txt" />
   </ItemGroup>
