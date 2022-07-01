@@ -25,13 +25,13 @@ void rotateUpDown(char side, char dir) {
 	for (int i = 0; i < 3; i++) temp[i] = cube[R][idxOne][i]; //ø¿∏•¬  ∏È ≈∞«Œ!
 	
 
-	if (dir == '+') { //Ω√∞ËπÊ«‚
+	if ((side == 'U' && dir == '+') || (side == 'D' && dir == '-')) { //Ω√∞ËπÊ«‚
 		for (int i = 0; i < 3; i++) cube[R][idxOne][i] = cube[B][idxOne][i]; //µﬁ -> ø¿
 		for (int i = 0; i < 3; i++) cube[B][idxOne][i] = cube[L][idxOne][i]; //øﬁ -> µﬁ
 		for (int i = 0; i < 3; i++) cube[L][idxOne][i] = cube[F][idxOne][i]; //æ’ -> øﬁ
 		for (int i = 0; i < 3; i++) cube[F][idxOne][i] = temp[i]; //ø¿ -> æ’
 	}
-	else if (dir == '-') { //π›Ω√∞ËπÊ«‚ 
+	else if ((side == 'U' && dir == '-') || (side == 'D' && dir == '+')) { //π›Ω√∞ËπÊ«‚ 
 		for (int i = 0; i < 3; i++) cube[R][idxOne][i] = cube[F][idxOne][i]; //ø¿ <- æ’
 		for (int i = 0; i < 3; i++) cube[F][idxOne][i] = cube[L][idxOne][i]; //æ’ <- øﬁ
 		for (int i = 0; i < 3; i++) cube[L][idxOne][i] = cube[B][idxOne][i]; //øﬁ <- µﬁ
@@ -46,17 +46,17 @@ void rotateRightLeft(char side, char dir) {
 	char temp[3];
 	for (int i = 0; i < 3; i++) temp[i] = cube[F][i][idxOne]; //æ’ ∏È ≈∞«Œ!
 
-	if (dir == '+') { //Ω√∞ËπÊ«‚
-		for (int i = 0; i < 3; i++) cube[F][i][idxOne] = cube[D][i][idxOne]; //æ∆ -> æ’
-		for (int i = 0; i < 3; i++) cube[D][i][idxOne] = cube[B][2 - i][idxTwo]; //µﬁ -> æ∆
+	if ((side == 'R' && dir == '+') || (side == 'L' && dir == '-')) { //Ω√∞ËπÊ«‚
+		for (int i = 0; i < 3; i++) cube[F][i][idxOne] = cube[D][2 - i][idxTwo]; //æ∆ -> æ’
+		for (int i = 0; i < 3; i++) cube[D][i][idxTwo] = cube[B][i][idxTwo]; //µﬁ -> æ∆
 		for (int i = 0; i < 3; i++) cube[B][i][idxTwo] = cube[U][2 - i][idxOne]; //¿≠ -> µﬁ
 		for (int i = 0; i < 3; i++) cube[U][i][idxOne] = temp[i]; //æ’ -> ¿≠
 	}
-	else if (dir == '-') { //π›Ω√∞ËπÊ«‚
+	else if ((side == 'R' && dir == '-') || (side == 'L' && dir == '+')) { //π›Ω√∞ËπÊ«‚
 		for (int i = 0; i < 3; i++) cube[F][i][idxOne] = cube[U][i][idxOne]; //¿≠ -> æ’
 		for (int i = 0; i < 3; i++) cube[U][i][idxOne] = cube[B][2 - i][idxTwo]; //µﬁ -> ¿≠
-		for (int i = 0; i < 3; i++) cube[B][i][idxTwo] = cube[D][2 - i][idxOne];//æ∆ -> µﬁ
-		for (int i = 0; i < 3; i++) cube[D][i][idxOne] = temp[i]; //æ’ -> æ∆
+		for (int i = 0; i < 3; i++) cube[B][i][idxTwo] = cube[D][i][idxTwo];//æ∆ -> µﬁ
+		for (int i = 0; i < 3; i++) cube[D][i][idxTwo] = temp[2 - i]; //æ’ -> æ∆
 	}
 }
 
@@ -67,16 +67,16 @@ void rotateFrontBack(char side, char dir) {
 	char temp[3];
 	for (int i = 0; i < 3; i++) temp[i] = cube[U][idxOne][i]; //¿≠ ∏È ≈∞«Œ!
 
-	if (dir == '+') { //Ω√∞ËπÊ«‚
+	if ((side == 'F' && dir == '+') || (side == 'B' && dir == '-')) { //Ω√∞ËπÊ«‚
 		for (int i = 0; i < 3; i++) cube[U][idxOne][i] = cube[L][2 - i][idxOne]; //øﬁ -> ¿≠
-		for (int i = 0; i < 3; i++) cube[L][i][idxOne] = cube[D][idxTwo][i]; //æ∆ -> øﬁ
-		for (int i = 0; i < 3; i++) cube[D][idxTwo][i] = cube[R][idxTwo][2 - i]; //ø¿ -> æ∆
-		for (int i = 0; i < 3; i++) cube[R][idxTwo][i] = temp[i]; //¿≠ -> ø¿
+		for (int i = 0; i < 3; i++) cube[L][i][idxOne] = cube[D][idxOne][2 - i]; //æ∆ -> øﬁ
+		for (int i = 0; i < 3; i++) cube[D][idxOne][i] = cube[R][idxTwo][i]; //ø¿ -> æ∆
+		for (int i = 0; i < 3; i++) cube[R][i][idxTwo] = temp[i]; //¿≠ -> ø¿
 	}
-	else if (dir == '-') { //π›Ω√∞ËπÊ«‚
+	else if ((side == 'F' && dir == '-') || (side == 'B' && dir == '+')) { //π›Ω√∞ËπÊ«‚
 		for (int i = 0; i < 3; i++) cube[U][idxOne][i] = cube[R][i][idxTwo]; //ø¿ -> ¿≠
-		for (int i = 0; i < 3; i++) cube[R][i][idxTwo] = cube[D][idxTwo][2 - i]; //æ∆ -> ø¿
-		for (int i = 0; i < 3; i++) cube[D][idxTwo][i] = cube[L][i][idxOne];//øﬁ -> æ∆
+		for (int i = 0; i < 3; i++) cube[R][i][idxTwo] = cube[D][idxOne][i]; //æ∆ -> ø¿
+		for (int i = 0; i < 3; i++) cube[D][idxOne][i] = cube[L][2 - i][idxOne];//øﬁ -> æ∆
 		for (int i = 0; i < 3; i++) cube[L][i][idxOne] = temp[2 - i];//¿≠ -> øﬁ
 	}
 
@@ -85,7 +85,8 @@ void operate() {
 	int op;
 	string opers;
 
-	cin >> op >> opers;
+	cin >> op; cin.get();
+	getline(cin, opers); 
 
 	char curop, curdir;
 	for (int i = 0; i < opers.length(); i += 3) {
@@ -116,7 +117,7 @@ int main() {
 	cin.tie(NULL); cout.tie(NULL);
 
 	int cases;
-	cin >> cases;
+	cin >> cases; cin.get();
 	
 	while (cases--) {
 		initialize();
