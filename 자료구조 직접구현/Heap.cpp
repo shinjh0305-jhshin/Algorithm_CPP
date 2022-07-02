@@ -8,14 +8,14 @@ struct info {
 	int score;
 };
 
-int maxSize = 10;
+int maxSize = 5;
 info* heap = nullptr;
 int sz_heap = 0;
 
 void increaseHeap() {
 	maxSize *= 2;
 	info* newheap = new info[maxSize];
-	for (int i = 0; i < sz_heap; i++) {
+	for (int i = 1; i <= sz_heap; i++) {
 		strcpy(newheap[i].name, heap[i].name);
 		newheap[i].score = heap[i].score;
 	}
