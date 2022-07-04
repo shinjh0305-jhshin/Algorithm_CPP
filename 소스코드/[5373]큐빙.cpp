@@ -37,6 +37,22 @@ void rotateUpDown(char side, char dir) {
 		for (int i = 0; i < 3; i++) cube[L][idxOne][i] = cube[B][idxOne][i]; //왼 <- 뒷
 		for (int i = 0; i < 3; i++) cube[B][idxOne][i] = temp[i]; //뒷 <- 오
 	}
+
+	char targetSide[3][3]; //회전하는 면도 같이 회전시켜준다.
+	int sideIdx = side == 'U' ? 0 : 5;
+
+	for (int row = 0; row < 3; row++) {
+		for (int col = 0; col < 3; col++) {
+			targetSide[row][col] = cube[sideIdx][row][col];
+		}
+	}
+
+	for (int row = 0; row < 3; row++) {
+		for (int col = 0; col < 3; col++) {
+			if (dir == '+') cube[sideIdx][row][col] = targetSide[2 - col][row]; //시계방향 회전
+			else cube[sideIdx][row][col] = targetSide[col][2 - row]; //반시계방향 회전
+		}
+	}
 }
 
 void rotateRightLeft(char side, char dir) {
@@ -58,6 +74,22 @@ void rotateRightLeft(char side, char dir) {
 		for (int i = 0; i < 3; i++) cube[B][i][idxTwo] = cube[D][i][idxTwo];//아 -> 뒷
 		for (int i = 0; i < 3; i++) cube[D][i][idxTwo] = temp[2 - i]; //앞 -> 아
 	}
+
+	char targetSide[3][3]; //회전하는 면도 같이 회전시켜준다.
+	int sideIdx = side == 'R' ? 4 : 2;
+
+	for (int row = 0; row < 3; row++) {
+		for (int col = 0; col < 3; col++) {
+			targetSide[row][col] = cube[sideIdx][row][col];
+		}
+	}
+
+	for (int row = 0; row < 3; row++) {
+		for (int col = 0; col < 3; col++) {
+			if (dir == '+') cube[sideIdx][row][col] = targetSide[2 - col][row]; //시계방향 회전
+			else cube[sideIdx][row][col] = targetSide[col][2 - row]; //반시계방향 회전
+		}
+	}
 }
 
 void rotateFrontBack(char side, char dir) {
@@ -70,7 +102,7 @@ void rotateFrontBack(char side, char dir) {
 	if ((side == 'F' && dir == '+') || (side == 'B' && dir == '-')) { //시계방향
 		for (int i = 0; i < 3; i++) cube[U][idxOne][i] = cube[L][2 - i][idxOne]; //왼 -> 윗
 		for (int i = 0; i < 3; i++) cube[L][i][idxOne] = cube[D][idxOne][2 - i]; //아 -> 왼
-		for (int i = 0; i < 3; i++) cube[D][idxOne][i] = cube[R][idxTwo][i]; //오 -> 아
+		for (int i = 0; i < 3; i++) cube[D][idxOne][i] = cube[R][i][idxTwo]; //오 -> 아
 		for (int i = 0; i < 3; i++) cube[R][i][idxTwo] = temp[i]; //윗 -> 오
 	}
 	else if ((side == 'F' && dir == '-') || (side == 'B' && dir == '+')) { //반시계방향
@@ -78,6 +110,22 @@ void rotateFrontBack(char side, char dir) {
 		for (int i = 0; i < 3; i++) cube[R][i][idxTwo] = cube[D][idxOne][i]; //아 -> 오
 		for (int i = 0; i < 3; i++) cube[D][idxOne][i] = cube[L][2 - i][idxOne];//왼 -> 아
 		for (int i = 0; i < 3; i++) cube[L][i][idxOne] = temp[2 - i];//윗 -> 왼
+	}
+
+	char targetSide[3][3]; //회전하는 면도 같이 회전시켜준다.
+	int sideIdx = side == 'F' ? 1 : 3;
+
+	for (int row = 0; row < 3; row++) {
+		for (int col = 0; col < 3; col++) {
+			targetSide[row][col] = cube[sideIdx][row][col];
+		}
+	}
+
+	for (int row = 0; row < 3; row++) {
+		for (int col = 0; col < 3; col++) {
+			if (dir == '+') cube[sideIdx][row][col] = targetSide[2 - col][row]; //시계방향 회전
+			else cube[sideIdx][row][col] = targetSide[col][2 - row]; //반시계방향 회전
+		}
 	}
 
 }
