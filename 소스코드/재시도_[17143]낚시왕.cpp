@@ -62,24 +62,41 @@ void changeSharkLocation(int row, int col) {
 			nextdirection = 1; 
 		}
 		else {
-			nextdirection = (curSpeed - (row - 1)) / (rows - 1);
-			if (nextdirection % 2 == 1) nextdirection = 1;
-			else nextdirection = 2;
+			nextdirection = (curSpeed - row) / (rows - 1);
+			nextrow = (curSpeed - row) % (rows - 1);
 
-			nextrow = (curSpeed - (row - 1)) % (rows - 1);
-			if (nextrow == 0) nextrow = 3;
-			nextrow++;
+			if (nextdirection % 2 == 1) { //up
+				nextdirection = 1;
+				nextrow = rows - (nextrow + 1);
+			} 
+			else { //down
+				nextdirection = 2;
+				nextrow = nextrow + 2;
+			} 
+
 		}
 	}
 	else if (curdirection == 2) {
+		nextcol = col;
+		if (row + curSpeed <= rows) {
+			nextrow = row + curSpeed;
+			nextdirection = 2;
+		}
+		else {
+			nextdirection = (curSpeed - (rows - row + 1)) / (rows - 1);
+			nextrow = (curSpeed - (rows - row + 1)) % (rows - 1);
 
-	}
+			if (nextdirection % 2 == 1) { //down
+				nextdirection = 2;
+				nextrow = rows - (nextrow + 1);
+			}
+			else { //up
+				nextdirection = 1;
+				nextrow = nextrow + 2;
+			}
 
-	if (curdirection == 1 || curdirection == 2) {
-		blockSize = rows - 1;
-		int nextdir = (curSpeed -))
+		}
 	}
-	else blockSize = cols - 1;
 
 	
 }
