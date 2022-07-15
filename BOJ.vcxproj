@@ -290,7 +290,11 @@
     <ClCompile Include="소스코드\[16935]배열 돌리기 3.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="소스코드\[16939]2x2x2 큐브.cpp" />
     <ClCompile Include="소스코드\[16967]배열 복원하기.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="소스코드\[17140]이차원 배열과 연산.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="소스코드\[17822]원판 돌리기.cpp">
@@ -317,7 +321,7 @@
     <ClCompile Include="소스코드\[5373]큐빙.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="소스코드\재시도_[17143]낚시왕.cpp">
+    <ClCompile Include="소스코드\[17143]낚시왕.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="소스코드\[17387]선분 교차 2.cpp">
