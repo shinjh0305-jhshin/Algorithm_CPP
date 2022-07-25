@@ -50,6 +50,7 @@ void operate() {
 		}
 		curmax = 0; curBlank = 0;
 
+		c
 		for (const auto& it : candidate) {
 			if (it.second > curmax) { //인접한 친구 숫자가 더 많은 칸 발견!
 				curmax = it.second;
