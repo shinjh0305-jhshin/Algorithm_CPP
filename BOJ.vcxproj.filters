@@ -1329,6 +1329,9 @@
     <ClCompile Include="소스코드\[1019]책 페이지 ★.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="소스코드\[20058]마법사 상어와 파이어스톰.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="input.txt" />
