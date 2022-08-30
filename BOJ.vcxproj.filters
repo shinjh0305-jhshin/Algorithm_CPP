@@ -1218,9 +1218,6 @@
     <ClCompile Include="소스코드\[1028]다이아몬드 광산.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="소스코드\!미완성_[21608]상어 초등학교.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="소스코드\[19236]청소년 상어.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
@@ -1360,6 +1357,15 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="소스코드\[16120]PPAP.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="소스코드\[21608]상어 초등학교.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="소스코드\[2109]순회강연.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="소스코드\[15903]카드 합체 놀이.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
