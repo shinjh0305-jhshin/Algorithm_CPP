@@ -13,7 +13,6 @@ using namespace std;
 bool doorOpened[26];
 bool visited[105][105];
 string map[105];
-vector<pair<int, int>> doorLocation[26];
 int rows, cols;
 int drow[4] = { 1,0,-1,0 }, dcol[4] = { 0,-1,0,1 };
 
@@ -21,7 +20,7 @@ void initialize() {
 	/*initialize all data*/
 	memset(doorOpened, false, sizeof(doorOpened));
 	memset(visited, false, sizeof(visited));
-	for (int i = 0; i < 26; i++) doorLocation[i].clear();
+	for (int i = 0; i < 105; i++) map[i].clear();
 
 	cin >> rows >> cols;
 
@@ -32,12 +31,6 @@ void initialize() {
 		map[i] = ".";
 		map[i] += st;
 		map[i] += ".";
-
-		for (int j = 0; j < cols; j++) {
-			if ('A' <= st[j] && st[j] <= 'Z') {
-				doorLocation[st[j] - 'A'].push_back({ i, j + 1 });
-			}
-		}
 	}
 	for (int i = 0; i <= cols + 1; i++) map[rows + 1] += '.'; //아랫단
 	
@@ -78,10 +71,7 @@ void operate() {
 			else if ('a' <= nextData && nextData <= 'z') { //열쇠다
 				if (!doorOpened[nextData - 'a']) { //처음 발견한 문에 대한 열쇠다
 					doorOpened[nextData - 'a'] = true;
-					for (const auto& it : doorLocation[nextData - 'a']) { //해당 문을 전부 큐에 넣는다.
-						qu.push(it);
-						visited[it.first][it.second] = true;
-					}
+					memset(visited, false, sizeof(visited));
 				}
 			}
 			

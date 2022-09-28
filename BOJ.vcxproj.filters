@@ -1410,10 +1410,13 @@
     <ClCompile Include="소스코드\[13913]숨바꼭질 4.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="소스코드\!다시_[9328]열쇠.cpp">
+    <ClCompile Include="소스코드\[9328]열쇠.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="소스코드\[8980]택배.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="소스코드\[9202]Boggle.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
